@@ -25,7 +25,8 @@ Using Terraform, implement the requirements.
 - add s3 access to ec2 instance profile
 - create s3 file which must start with ``aws-waf-logs-`` and use any suffix
 - Add WAF rules
-![alt text](image-1.png)
+
+![alt text](assets/screenshot1.png)
 
 ## Firing Waf rules or How to test the rules?
 
@@ -63,6 +64,21 @@ aws-waf-logs-myapp-prod/AWSLogs/<account-id>/WAFLogs/<web-acl-name>/YYYY/MM/DD/.
 
 ![alt text](assets/website.png)
 
-### - screenshot of AWS WAF findings
+### - Screenshot of AWS WAF findings
 
-![alt text](image.png)
+![alt text](assets/screenshot2.png)
+
+## How to use
+
+- Run Terraform
+
+```sh
+terraform init
+terraform apply --auto-approve
+```
+
+- Create Application in AWS Codedeploy manually.
+- Zip by CD into the directory app.
+- Upload the app and create the deployment.
+- Create AWS WAF and add the rules from AWS Manged Rules
+- Then Start Testing.
