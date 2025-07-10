@@ -1,7 +1,8 @@
-# Configure WAF To logging in S3
+# Configure WAF to log to S3
 
-A media application runs on a host of Amazon EC2 instances fronted with an Application Load Balancer (ALB) and Amazon S3 buckets as storage service. For enhanced security, an AWS Web Application Firewall (AWS WAF) has been set up to monitor the requests coming to the ALB. The DevOps team needs to submit a quarterly report on the web requests received by AWS WAF, having detailed information about each web request as well as the details about rules that the request matched. The team has reached out to you for implementing the changes needed for collecting the security data for the coming months.
-using terraform implement the requirments.
+A media application runs on a host of Amazon EC2 instances fronted with an Application Load Balancer (ALB) and Amazon S3 buckets as a storage service. For enhanced security, an AWS Web Application Firewall (AWS WAF) has been set up to monitor the requests coming to the ALB. The DevOps team needs to submit a quarterly report on the web requests received by AWS WAF, having detailed information about each web request as well as the details about the rules that the request matched. The team has reached out to you to implement the changes needed for collecting the security data for the coming months.
+Using Terraform, implement the requirements.
+
 ![waf-archi](assets/waf-archi.png)
 
 ## Structure Required
@@ -20,13 +21,13 @@ using terraform implement the requirments.
 
 ## Requirements
 
-- create iam role for the lunch template(ec2 instance profile) to access codedeploy.
+- Create an IAM role for the lunch template(EC2 instance profile) to access CodeDeploy.
 - add s3 access to ec2 instance profile
 - create s3 file which must start with ``aws-waf-logs-`` and use any suffix
-- add WAF rules
+- Add WAF rules
 ![alt text](image-1.png)
 
-## Fireing Waf rules or How to test the rules?
+## Firing Waf rules or How to test the rules?
 
 - ### Trigger AWSManagedRulesSQLiRuleSet
 
@@ -56,12 +57,12 @@ curl -i http://demo-project-alb-2040788191.us-east-1.elb.amazonaws.com/?input=..
 aws-waf-logs-myapp-prod/AWSLogs/<account-id>/WAFLogs/<web-acl-name>/YYYY/MM/DD/...
 ```
 
-## After Deployed the inferstructure using  Terraform
+## After deploying the infrastructure using  Terraform
 
-### - dns name of the web application
+### - DNS name of the web application
 
 ![alt text](assets/website.png)
 
-### - screenshot of aws WAF findings
+### - screenshot of AWS WAF findings
 
 ![alt text](image.png)
