@@ -3,7 +3,7 @@
 A media application runs on a host of Amazon EC2 instances fronted with an Application Load Balancer (ALB) and Amazon S3 buckets as a storage service. For enhanced security, an AWS Web Application Firewall (AWS WAF) has been set up to monitor the requests coming to the ALB. The DevOps team needs to submit a quarterly report on the web requests received by AWS WAF, having detailed information about each web request as well as the details about the rules that the request matched. The team has reached out to you to implement the changes needed for collecting the security data for the coming months.
 Using Terraform, implement the requirements.
 
-![waf-archi](assets/waf-archi.png)
+![waf-archi](assets/waf.png)
 
 ## Structure Required
 
